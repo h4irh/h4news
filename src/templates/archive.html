@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% set active_page = 'archive' %}
+
+{% block content %}
+<section class="archive-header">
+  <div class="container">
+    <h1>News Archive</h1>
+    <p>Browse all our published articles</p>
+  </div>
+</section>
+
+<section class="archive-content">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-categories">
+        <span>Filter by category:</span>
+        <a href="#" class="filter-btn active" data-category="all">All</a>
+        {% for category in categories %}
+          <a href="#" class="filter-btn" data-category="{{ category.slug }}">{{ category.name | capitalize }}</a>
+        {% endfor %}
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search articles...">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <div class="archive-posts">
+      {% for post in posts %}
+        <div class="archive-item" data-category="{{ post.category }}">
+          <div class="archive-date">
+            <span class="day">{{ post.date | date('D') }}</span>
+            <span class="month">{{ post.date | date('MMM') }}</span>
+            <span class="year">{{ post.date | date('YYYY') }}</span>
+          </div>
+          <div class="archive-details">
+            <span class="category {{ post.category }}">{{ post.category }}</span>
+            <h3><a href="/posts/{{ post.slug }}.html">{{ post.title }}</a></h3>
+            <p class="excerpt">{{ post.excerpt }}</p>
+            <div class="post-meta">
+              <span class="author">By {{ post.author }}</span>
+              <a href="/posts/{{ post.slug }}.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="pagination">
+      <button id="loadMoreArchive" class="btn">Load More</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

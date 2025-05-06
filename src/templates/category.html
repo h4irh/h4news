@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% set active_page = category.slug %}
+
+{% block content %}
+<section class="category-header">
+  <div class="container">
+    <h1>{{ category.name | capitalize }} News</h1>
+    <p>All the latest updates in {{ category.name }}</p>
+  </div>
+</section>
+
+<section class="category-posts">
+  <div class="container">
+    <div class="news-grid">
+      {% for post in category.posts %}
+        <div class="news-card">
+          <div class="news-img">
+            <img src="{{ post.image | default('/images/placeholder.jpg') }}" alt="{{ post.title }}">
+            <span class="category {{ post.category }}">{{ post.category }}</span>
+          </div>
+          <div class="news-content">
+            <h3><a href="/posts/{{ post.slug }}.html">{{ post.title }}</a></h3>
+            <p class="news-excerpt">{{ post.excerpt }}</p>
+            <div class="news-meta">
+              <span class="date">{{ post.formattedDate }}</span>
+              <span class="author">By {{ post.author }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>Stay Informed</h2>
+      <p>Subscribe to our newsletter for the latest news delivered directly to your inbox.</p>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
