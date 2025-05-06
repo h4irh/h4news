@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Breaking News</h2>
+        {% set breakingNews = featuredPosts[0] %}
+        <h3>{{ breakingNews.title }}</h3>
+        <p>{{ breakingNews.excerpt }}</p>
+        <a href="/posts/{{ breakingNews.slug }}.html" class="btn">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-news">
+    <div class="container">
+      <h2 class="section-title">Featured Stories</h2>
+      <div class="news-grid">
+        {% for post in featuredPosts %}
+          <div class="news-card {% if loop.first %}featured{% endif %}">
+            <div class="news-img">
+              <img src="{{ post.image | default('/images/placeholder.jpg') }}" alt="{{ post.title }}">
+              <span class="category {{ post.category }}">{{ post.category }}</span>
+            </div>
+            <div class="news-content">
+              <h3><a href="/posts/{{ post.slug }}.html">{{ post.title }}</a></h3>
+              <p class="news-excerpt">{{ post.excerpt }}</p>
+              <div class="news-meta">
+                <span class="date">{{ post.formattedDate }}</span>
+                <span class="author">By {{ post.author }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="latest-news">
+    <div class="container">
+      <h2 class="section-title">Latest News</h2>
+      <div class="news-list" id="newsList">
+        {% for post in latestPosts %}
+          {% if not post.featured or (post.featured and loop.index > 3) %}
+            <div class="news-item">
+              <img src="{{ post.image | default('/images/placeholder.jpg') }}" alt="{{ post.title }}" class="news-item-img">
+              <div class="news-item-content">
+                <span class="category {{ post.category }}">{{ post.category }}</span>
+                <h3><a href="/posts/{{ post.slug }}.html">{{ post.title }}</a></h3>
+                <p class="news-excerpt">{{ post.excerpt }}</p>
+                <div class="news-meta">
+                  <span class="date">{{ post.formattedDate }}</span>
+                  <span class="author">By {{ post.author }}</span>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <a href="/archive.html" class="btn load-more">View All Articles</a>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Informed</h2>
+        <p>Subscribe to our newsletter for the latest news delivered directly to your inbox.</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}
