@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <h1><a href="/">H4News</a></h1>
+          <p class="motto">"No government could stop us to tell truth"</p>
+        </div>
+        <nav>
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="/" {% if active_page == 'home' %}class="active"{% endif %}>Home</a></li>
+            {% for category in categories %}
+              <li><a href="/categories/{{ category.slug }}.html" {% if active_page == category.slug %}class="active"{% endif %}>{{ category.name | capitalize }}</a></li>
+            {% endfor %}
+            <li><a href="/archive.html" {% if active_page == 'archive' %}class="active"{% endif %}>Archive</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>H4News</h2>
+          <p class="motto">"No government could stop us to tell truth"</p>
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h3>Categories</h3>
+            <ul>
+              {% for category in categories %}
+                <li><a href="/categories/{{ category.slug }}.html">{{ category.name | capitalize }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="link-group">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="/about.html">About Us</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+              <li><a href="/privacy.html">Privacy Policy</a></li>
+              <li><a href="/terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="link-group">
+            <h3>Connect</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; {% raw %}{{ currentYear }}{% endraw %} H4News. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+            </html>
