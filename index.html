@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H4News - The Truth Unleashed</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <h1>H4News</h1>
+          <p class="motto">"No government could stop us to tell truth"</p>
+        </div>
+        <nav>
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Politics</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">World</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Science</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Breaking News</h2>
+        <h3>Global Summit Addresses Climate Crisis as Nations Pledge New Commitments</h3>
+        <p>World leaders gather to discuss urgent climate action amid rising global temperatures and extreme weather events.</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-news">
+    <div class="container">
+      <h2 class="section-title">Featured Stories</h2>
+      <div class="news-grid">
+        <div class="news-card featured">
+          <div class="news-img">
+            <img src="/placeholder.svg?height=300&width=500" alt="News image">
+            <span class="category politics">Politics</span>
+          </div>
+          <div class="news-content">
+            <h3>Landmark Legislation Passes After Months of Debate</h3>
+            <p class="news-excerpt">The controversial bill finally passed with bipartisan support after significant amendments.</p>
+            <div class="news-meta">
+              <span class="date">June 12, 2023</span>
+              <span class="author">By Sarah Johnson</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-img">
+            <img src="/placeholder.svg?height=200&width=300" alt="News image">
+            <span class="category tech">Technology</span>
+          </div>
+          <div class="news-content">
+            <h3>New AI Breakthrough Could Transform Healthcare</h3>
+            <p class="news-excerpt">Researchers develop algorithm capable of predicting patient outcomes with unprecedented accuracy.</p>
+            <div class="news-meta">
+              <span class="date">June 11, 2023</span>
+              <span class="author">By Michael Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-img">
+            <img src="/placeholder.svg?height=200&width=300" alt="News image">
+            <span class="category world">World</span>
+          </div>
+          <div class="news-content">
+            <h3>Peace Talks Resume in Conflict Zone</h3>
+            <p class="news-excerpt">Diplomatic efforts intensify as international mediators push for lasting ceasefire agreement.</p>
+            <div class="news-meta">
+              <span class="date">June 10, 2023</span>
+              <span class="author">By Elena Kowalski</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="latest-news">
+    <div class="container">
+      <h2 class="section-title">Latest News</h2>
+      <div class="news-list" id="newsList">
+        <!-- News items will be loaded here by JavaScript -->
+      </div>
+      <button class="btn load-more" id="loadMoreBtn">Load More</button>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Informed</h2>
+        <p>Subscribe to our newsletter for the latest news delivered directly to your inbox.</p>
+        <form id="newsletterForm">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>H4News</h2>
+          <p class="motto">"No government could stop us to tell truth"</p>
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="#">Politics</a></li>
+              <li><a href="#">Technology</a></li>
+              <li><a href="#">World</a></li>
+              <li><a href="#">Business</a></li>
+              <li><a href="#">Science</a></li>
+            </ul>
+          </div>
+          <div class="link-group">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="link-group">
+            <h3>Connect</h3>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 H4News. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
